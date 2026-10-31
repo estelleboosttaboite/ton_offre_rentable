@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ton offre est-elle rentable ? – Boost Ta Boîte</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Dancing+Script:wght@600&display=swap">
+<style>
+:root{--bg:#f5f0ea;--card:#fff;--ink:#113937;--soft:#56624E;--line:#D7D9D2;--sage:#828E71;--wood:#7E6B51;--ok:#56624E;--okbg:#e4e9dc;--ko:#7E3B2E;--kobg:#f1ddd6;
+color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d2b29;--card:#113937;--ink:#f5f0ea;--soft:#D7D9D2;--line:#56624E;--sage:#828E71;--wood:#c2ad8c;--ok:#d7e3c9;--okbg:#2c4a3f;--ko:#f3cfc5;--kobg:#5a2f27;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d2b29;--card:#113937;--ink:#f5f0ea;--soft:#D7D9D2;--line:#56624E;--sage:#828E71;--wood:#c2ad8c;--ok:#d7e3c9;--okbg:#2c4a3f;--ko:#f3cfc5;--kobg:#5a2f27;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Poppins,system-ui,sans-serif;line-height:1.6}
+main{max-width:760px;margin:0 auto;padding:32px 18px 56px}
+.brand{font-family:'Mistrully','Dancing Script',cursive;font-size:30px;color:var(--wood);margin:0}
+h1{font-family:Georgia,serif;font-style:italic;font-weight:700;font-size:clamp(28px,6vw,40px);line-height:1.15;margin:4px 0 10px}
+h2{font-family:Georgia,serif;font-style:italic;font-weight:700;font-size:22px;margin:0 0 14px}
+.intro{color:var(--soft);margin:0 0 26px;max-width:60ch}
+section{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.grid{grid-template-columns:1fr}}
+label{display:block;font-weight:500;font-size:14px}
+.hint{display:block;font-weight:400;font-size:12px;color:var(--soft);margin-top:2px}
+input{width:100%;margin-top:6px;padding:11px 12px;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px}
+input:focus-visible{outline:3px solid var(--sage);outline-offset:1px}
+.wide{grid-column:1/-1}
+.verdict{border-radius:14px;padding:16px 18px;font-weight:500;margin-bottom:16px}
+.verdict.ok{background:var(--okbg);color:var(--ok)}
+.verdict.ko{background:var(--kobg);color:var(--ko)}
+.verdict.wait{background:var(--bg);color:var(--soft);border:1.5px dashed var(--line)}
+.verdict b{font-family:Georgia,serif;font-style:italic;font-size:19px;display:block;margin-bottom:2px}
+dl{margin:0}
+.row{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+dt{color:var(--soft);font-size:14px}
+dd{margin:0;font-weight:600;text-align:right;white-space:nowrap}
+.key dt{color:var(--ink);font-weight:500}.key dd{font-family:Georgia,serif;font-style:italic;font-size:20px}
+.note{font-size:12.5px;color:var(--soft);margin:12px 0 0}
+.call{text-align:center}.call p{color:var(--soft);margin:0 auto 18px;max-width:46ch}.btn{display:inline-block;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:600;padding:14px 28px;border-radius:999px}.btn:hover{background:var(--wood)}.btn:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
+footer{text-align:center;font-family:Georgia,serif;font-style:italic;color:var(--soft);font-size:14px;margin-top:26px}
+</style>
+</head>
+<body>
+<main>
+  <p class="brand">Boost ta boîte</p>
+  <h1>Ton offre est-elle vraiment rentable ?</h1>
+  <p class="intro">Ne pars pas de la réduction que tu veux afficher. Pars de ce que ton offre te coûte. Remplis les cases : les calculs se font tout seuls, avec tes chiffres uniquement.</p>
+
+  <section>
+    <h2>Ton offre</h2>
+    <div class="grid">
+      <label class="wide">Nom de l’offre
+        <input id="nom" type="text" value="Cure visage" placeholder="Ex. Cure visage éclat">
+      </label>
+      <label>Prestation
+        <input id="presta" type="text" placeholder="Ex. Soin visage">
+      </label>
+      <label>Nombre de rendez-vous
+        <input id="rdv" type="number" min="1" step="1" value="4" inputmode="numeric">
+      </label>
+      <label>Durée par rendez-vous (minutes)
+        <input id="duree" type="number" min="0" step="5" value="60" inputmode="numeric">
+      </label>
+      <label>Préparation et nettoyage (minutes par rendez-vous)
+        <span class="hint">Installation, rangement, désinfection</span>
+        <input id="prep" type="number" min="0" step="5" inputmode="numeric" placeholder="À renseigner">
+      </label>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tes coûts</h2>
+    <div class="grid">
+      <label>Produits et consommables par séance (€ HT)
+        <span class="hint">Crème, masque, coton, draps jetables…</span>
+        <input id="prod" type="number" min="0" step="0.5" inputmode="decimal" placeholder="À renseigner">
+      </label>
+      <label>Autres coûts pour toute l’offre (€ HT)
+        <span class="hint">Appareil, flyers, carte de suivi…</span>
+        <input id="autres" type="number" min="0" step="0.5" inputmode="decimal" placeholder="0">
+      </label>
+      <label class="wide">Ce que doit te rapporter 1 heure de travail (€ HT)
+        <span class="hint">Tes charges + la rémunération que ton entreprise doit dégager, ramenées à l’heure. Ce chiffre vient de tes comptes, pas d’une moyenne.</span>
+        <input id="taux" type="number" min="0" step="1" inputmode="decimal" placeholder="À renseigner">
+      </label>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ton prix</h2>
+    <div class="grid">
+      <label>Prix envisagé pour l’offre complète (€ HT)
+        <input id="prix" type="number" min="0" step="1" inputmode="decimal" placeholder="À renseigner">
+      </label>
+      <label>Prix d’un soin à l’unité (€ HT)
+        <span class="hint">Pour mesurer la réduction accordée</span>
+        <input id="unite" type="number" min="0" step="1" inputmode="decimal" placeholder="Facultatif">
+      </label>
+    </div>
+    <p class="note">Tous les montants se saisissent hors taxes (HT). La TVA à 20 % est ajoutée automatiquement à la fin du résultat. Les cotisations ne sont pas prises en compte.</p>
+  </section>
+
+  <section>
+    <h2>Le résultat</h2>
+    <div id="verdict" class="verdict wait"><b>En attente de tes chiffres</b>Renseigne le prix, les produits et ce que doit te rapporter ton heure.</div>
+    <dl id="res"></dl>
+    <p class="note">Si un chiffre est laissé vide, il est compté à zéro : le résultat peut alors paraître meilleur qu’il ne l’est. Pour un avis sur le régime fiscal ou la rémunération, rapproche-toi de ton expert-comptable.</p>
+  </section>
+
+  <section class="call">
+    <h2>Un point par téléphone ?</h2>
+    <p>Tu veux regarder ton offre avec quelqu’un qui connaît les chiffres des instituts ? On fait le point ensemble.</p>
+    <a class="btn" href="https://www.boosttaboite.fr/decouverte" target="_blank" rel="noopener">Réserve ton appel</a>
+  </section>
+
+  <footer>Boost Ta Boîte – Tu ne dois pas seulement faire tourner ton institut. Tu dois aussi le faire prospérer.</footer>
+</main>
+<script>
+var $=function(i){return document.getElementById(i)};
+var eur=function(n){return n.toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2})+' €'};
+var h=function(n){return n.toLocaleString('fr-FR',{maximumFractionDigits:2})+' h'};
+function v(i){var x=parseFloat($(i).value.replace(',','.'));return isNaN(x)?0:x}
+function row(l,val,k){return '<div class="row'+(k?' key':'')+'"><dt>'+l+'</dt><dd>'+val+'</dd></div>'}
+function calc(){
+  var n=v('rdv'),d=v('duree'),p=v('prep'),pr=v('prod'),au=v('autres'),t=v('taux'),px=v('prix'),u=v('unite');
+  var vb=$('verdict'),res=$('res'),nom=$('nom').value.trim()||'Ton offre';
+  if(!px||!n||!d){vb.className='verdict wait';vb.innerHTML='<b>En attente de tes chiffres</b>Renseigne le prix, la durée et le nombre de rendez-vous.';res.innerHTML='';return}
+  var temps=n*(d+p)/60, directs=n*pr+au, coutTemps=temps*t, pmin=directs+coutTemps;
+  var reste=px-directs, parH=temps?reste/temps:0, ecart=px-pmin;
+  if(!t){vb.className='verdict wait';vb.innerHTML='<b>Il manque une donnée clé</b>Sans ce que doit te rapporter ton heure, impossible de dire si le prix couvre ton travail.'}
+  else if(ecart>=0){vb.className='verdict ok';vb.innerHTML='<b>Ce prix couvre ton travail</b>'+nom+' dépasse de '+eur(ecart)+' ton prix minimum, d’après tes chiffres.'}
+  else{vb.className='verdict ko';vb.innerHTML='<b>Ce prix ne couvre pas ton travail</b>'+nom+' est '+eur(-ecart)+' en dessous de ton prix minimum, d’après tes chiffres.'}
+  var s='';
+  s+=row('Temps total mobilisé',h(temps));
+  s+=row('Produits et autres coûts',eur(directs));
+  s+=row('Valeur de ton temps ('+h(temps)+' × '+eur(t)+')',eur(coutTemps));
+  s+=row('Prix minimum pour couvrir ton travail',eur(pmin),1);
+  s+=row('Prix envisagé HT',eur(px),1);
+  s+=row('Prix par séance HT',eur(px/n));
+  s+=row('Ce qu’il te reste après les coûts directs',eur(reste));
+  s+=row('Soit par heure travaillée',eur(parH)+(t?' (objectif : '+eur(t)+')':''));
+  if(u){var full=u*n,rem=(1-px/full)*100,remMax=(1-pmin/full)*100;
+    s+=row('Prix des '+n+' soins à l’unité',eur(full));
+    s+=row('Réduction que tu accordes',rem.toLocaleString('fr-FR',{maximumFractionDigits:1})+' %');
+    if(t)s+=row('Réduction maximale avant de perdre de l’argent',(remMax<0?'Aucune : même sans réduction, le prix unitaire ne couvre pas ton travail':remMax.toLocaleString('fr-FR',{maximumFractionDigits:1})+' %'),0)}
+  var tva=px*0.2,ttc=px+tva;
+  s+=row('TVA à 20 %',eur(tva));
+  s+=row('Prix de commercialisation TTC',eur(ttc),1);
+  s+=row('Soit par séance TTC',eur(ttc/n));
+  res.innerHTML=s;
+}
+document.querySelectorAll('input').forEach(function(e){e.addEventListener('input',calc)});
+calc();
+</script>
+</body>
+</html>
